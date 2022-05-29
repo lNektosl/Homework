@@ -4,6 +4,7 @@ public class Main {
 
     public static void main(String[] args) {
         Dog dog1 = new Dog();
+        System.out.println("");
         dog1.sayHello();
         System.out.println("_______________________________");
         Dog dog2 = new Dog("Johan","M");
@@ -14,11 +15,15 @@ public class Main {
         dog3.change(4);
         dog3.sayAge();
         System.out.println("_______________________________");
+        dog3.change("Martin", 3);
+        dog3.sayHello();
+        dog3.sayAge();
+        System.out.println("_______________________________");
         Dog dog4 = new Dog("Charcoal","M");
         dog4.sayHello();
         dog4.change("Snow-white");
         dog4.sayHello();
-        dog4.change("asd","F");
+        dog4.change("Chilly-pepper","F");
         dog4.sayHello();
 
     }
@@ -71,17 +76,20 @@ public class Main {
         void sayAge(){
             System.out.println("I'm " + age);
         }
-        String change(String name){
+
+        void change(String name){
              this.name = name;
-             return name;
         }
-        int change(int age){
+        void change(int age){
              this.age=age;
-             return age;
         }
-       String change(String name,String sex){
+       void change(String name,String sex){
+             this.name=name;
              this.sex=sex;
-             return sex;
+       }
+       void change(String name, int age){
+             this.name=name;
+             this.age=age;
        }
 
         int grow (int i){
