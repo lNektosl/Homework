@@ -3,35 +3,88 @@ package com.company;
 public class Main {
 
     public static void main(String[] args) {
-        dog dog1 = new dog(17, "Josh");
+        Dog dog1 = new Dog();
         dog1.sayHello();
-        dog dog2 = new dog(13,"Snow-white");
-        int totalWeight = dog2.Grow(5);
-        System.out.println("My new weight " + totalWeight);
-        dog dog3 = new dog();
-        dog3.sayHello();
-    }
+        System.out.println("_______________________________");
+        Dog dog2 = new Dog("Johan","M");
+        dog2.sayHello();
+        System.out.println("_______________________________");
+        Dog dog3 = new Dog(16,"Snowball",3,"M","English bulldog");
+        dog3.sayAge();
+        dog3.change(4);
+        dog3.sayAge();
+        System.out.println("_______________________________");
+        Dog dog4 = new Dog("Charcoal","M");
+        dog4.sayHello();
+        dog4.change("Snow-white");
+        dog4.sayHello();
+        dog4.change("asd","F");
+        dog4.sayHello();
 
+    }
+//  ДЗ-5  Добавить в созданный класс Собака поля пол, возраст, порода. Создать несколько конструкторов в данном классе с различными вариантами параметров,
+//  создать несколько перегруженных методов change с различными вариантами и количеством параметров,
+//  создать несколько объектов данного класса согласны разным конструкторам и продемонстрировать работу методов в методе main
 
 }
-     class dog{
-         public String name;
-         public int weight;
+     class Dog{
+         private String name;
+         private int weight;
+         private String sex;
+         private int age;
+         private String specie;
 
-         public dog(){
+         public Dog(){
              this.name = "Mabel";
              this.weight = 15;
+             this.age = 2;
+             this.sex = "F";
+             this.specie = "Samoyed";
          }
 
-        public dog(int weight, String name){
+        public Dog(int weight, String name, int age,String sex, String specie){
             this.weight = weight;
             this.name = name;
+            this.sex= sex;
+            this.age = age;
+            this.specie = specie;
+        }
+        public Dog(String name, String sex, int age){
+            this.name = name;
+            this.sex= sex;
+            this.age = age;
+        }
+        public Dog(String name, String sex){
+            this.name = name;
+            this.sex= sex;
+        }
+        public Dog(String name){
+             this.name=name;
         }
         void sayHello(){
-             System.out.println("Hello! My name is " + name + " and my weight is " + weight);
+             if (sex == "F")
+             System.out.println("Hello! My name is " + name +" I'm a good girl!");
+             else {
+                 System.out.println("Hello! My name is " + name + " I'm a good boy!");
+             }
         }
+        void sayAge(){
+            System.out.println("I'm " + age);
+        }
+        String change(String name){
+             this.name = name;
+             return name;
+        }
+        int change(int age){
+             this.age=age;
+             return age;
+        }
+       String change(String name,String sex){
+             this.sex=sex;
+             return sex;
+       }
 
-        int Grow (int i){
+        int grow (int i){
           int totalWeight = weight + i;
           return totalWeight;
         }
